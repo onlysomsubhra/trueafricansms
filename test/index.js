@@ -1,9 +1,9 @@
 const trueafrican = require('../index');
 
-const Username = 'rontuval'; //'xxxx';
-const Password = 'Rtuval678#'; //'xxxx';
-const PhoneNumber = '256779043988';
-const Message = 'Plz confirm your no dominic, i will test for uganda';
+const Username = 'xxxx';
+const Password = 'xxxx';
+const PhoneNumber = '256xxxxxxxxx';
+const Message = 'test message from true african api';
 
 const obj = {
     username: Username,
