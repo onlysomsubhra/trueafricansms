@@ -1,26 +1,18 @@
-const onfon = require('../index');
+const trueafrican = require('../index');
 
-const Username = 'xxxx';
-const Password = 'xxxx';
-const PhoneNumber = '254xxxxxxxxx';
-const Message = 'npm test sms';
-const SenderId = 'YYYY';
-
-//const min=1000; 
-//const max=9999;  
-//const SmsId = Math.floor(Math.random() * (+max - +min)) + +min; 
-const SmsId = Math.random().toString(36).replace('0.', '');
+const Username = 'rontuval'; //'xxxx';
+const Password = 'Rtuval678#'; //'xxxx';
+const PhoneNumber = '256779043988';
+const Message = 'Plz confirm your no dominic, i will test for uganda';
 
 const obj = {
     username: Username,
     password: Password,
-    senderid: SenderId,
-    smsid: SmsId,
-    recipient: PhoneNumber,
+    msisdn: PhoneNumber,
     message: Message
 };
 
-onfon(obj, function(err,res) {
+trueafrican(obj, function(err,res) {
     if(err){
         console.log('error',err);
         return;

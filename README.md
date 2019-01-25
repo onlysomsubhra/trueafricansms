@@ -1,9 +1,9 @@
-# ONFON SMS Gateway API for Kenya
+# True African SMS Gateway API for Uganda
 
 ## Install
 
 ```bash
-npm install onfonsms --save
+npm install trueafricansms --save
 ```
 
 ## Test
@@ -15,66 +15,26 @@ npm test
 
 ```javascript
 //import library
-const onfon = require('onfonsms');
+const trueafrican = require('trueafricansms');
 
 //get data from database or ...
-const Username = 'xxxx'; // onfon client username
-const Password = 'xxxx'; // onfon client password
-const PhoneNumber = '254xxxxxxxxx'; // to mobile number or recipient number
+const Username = 'xxxx'; // true african client username
+const Password = 'xxxx'; // true african client password
+const PhoneNumber = '256xxxxxxxxx'; // to mobile number or msisdn number
 const Message = 'npm test super agent'; // sms text message
-const SenderId = 'YYYYY'; // You can use your project or company name
-
-const SmsId = Math.random().toString(36).replace('0.', '');
 
 const obj = {
     username: Username,
     password: Password,
-    senderid: SenderId,
-    smsid: SmsId,
-    recipient: PhoneNumber,
+    msisdn: PhoneNumber,
     message: Message
 };
 
-//sedn sms
-onfon(obj, function(err,res) {
+//send sms
+trueafrican(obj, function(err,res) {
     if(err){
         console.log('error',err);
         return err;
-    }
-
-    console.log('success',res);
-});
-```
-
-### Usage with error
-
-```javascript
-//import library
-const onfon = require('onfonsms');
-
-//get data from database or ...
-const Username = 'xxxx'; // onfon client username
-const Password = 'xxxx'; // onfon client password
-const PhoneNumber = '+254xxxxxxxxx'; // to mobile number or recipient number
-const Message = 'npm test super agent'; // sms text message
-const SenderId = 'YYYYY'; // You can use your project or company name
-
-const SmsId = Math.random().toString(36).replace('0.', '');
-
-const obj = {
-    username: Username,
-    password: Password,
-    senderid: SenderId,
-    smsid: SmsId,
-    recipient: PhoneNumber,
-    message: Message
-};
-
-//sedn sms
-onfon(obj, function(err,res) {
-    if(err){
-        console.log('error',err);
-        return;
     }
 
     console.log('success',res);
