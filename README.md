@@ -31,12 +31,42 @@ const obj = {
 };
 
 //send sms
-trueafrican(obj, function(err,res) {
-    if(err){
-        console.log('error',err);
-        return err;
-    }
-
-    console.log('success',res);
+new Promise((resolve, reject) => {
+    trueafrican(obj)
+    .then(res => {
+        if(res.type == 'error'){
+            console.log('error: ', res);
+            //return;
+            resolve(false);
+        } else {
+            console.log('success: ',res);
+            resolve(true);
+        }
+    })
+    .catch(err => {
+        console.log('error: ', err);
+        reject(err);
+    });
 });
+```
+
+
+### Expected success ouput
+
+```
+{ 
+    type: 'success',
+    code: '200',
+    responce: 'json response from true african end' 
+}
+```
+
+### Expected error ouput
+
+```
+{ 
+    type: 'error',
+    code: '209',
+    responce: 'json response from true african end' 
+}
 ```
