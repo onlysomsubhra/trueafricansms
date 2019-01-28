@@ -10,7 +10,7 @@ const config = {
     timeout: 5000
 }
 
-function create(obj, cb) {
+function create(obj) {
 
     const url = 'http://mysms.trueafrican.com/v1/api/esme/send';
 
@@ -41,31 +41,33 @@ function create(obj, cb) {
 
     const data = {msisdn : [msisdn], message :message, username : username, password : password};
 
-    superagent
-        .post(url)
-        .send(data) // query string
-        .timeout({
-            response: timeout,  // Wait 5 seconds for the server to start sending,
-            deadline: 60000, // but allow 1 minute for the file to finish loading.
-        })
-        .set(headers)
-        .then((res) => {
-            // Do something
-            console.log(res.text);
-            const response = res.text;
-        
-            var status = response.status;
-            var code = response.code;
-            var message = response.error;
-            if(code == 200) {
-                cb(null,code)
-            } else {
-                cb(code,null)
-            }
-        })
-        .catch(err=>{
-            cb(err,null)
-        });
+    let response = {};
+    return new Promise((resolve, reject) => {
+        superagent
+            .post(url)
+            .send(data) // query string
+            .timeout({
+                response: timeout,  // Wait 5 seconds for the server to start sending,
+                deadline: 60000, // but allow 1 minute for the file to finish loading.
+            })
+            .set(headers)
+            .then((res) => {
+                // Do something
+                //console.log(res);
+                const resp = res.body;
+            
+                var status = resp.status;
+                var code = resp.code;
+                var message = resp.error;
+                if(code == 200) {
+                    response = {'type':'success', 'code':code, 'responce':resp};
+                } else {
+                    response = {'type':'error', 'code':code, 'responce':resp};
+                }
+                resolve(response);
+            })
+            .catch(err => reject(err));
+    });
 }
 
 module.exports = create;
