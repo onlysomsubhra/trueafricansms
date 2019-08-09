@@ -53,18 +53,8 @@ function create(obj) {
             .set(headers)
             .then((res) => {
                 // Do something
-                //console.log(res);
-                const resp = res.body;
-            
-                var status = resp.status;
-                var code = resp.code;
-                var message = resp.error;
-                if(code == 200) {
-                    response = {'type':'success', 'code':code, 'responce':resp};
-                } else {
-                    response = {'type':'error', 'code':code, 'responce':resp};
-                }
-                resolve(response);
+                //console.log(res);                
+                resolve({'response': res});
             })
             .catch(err => reject(err));
     });

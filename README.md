@@ -34,14 +34,8 @@ const obj = {
 new Promise((resolve, reject) => {
     trueafrican(obj)
     .then(res => {
-        if(res.type == 'error'){
-            console.log('error: ', res);
-            //return;
-            resolve(false);
-        } else {
-            console.log('success: ',res);
-            resolve(true);
-        }
+        //console.log('success: ',res);
+        resolve(true);        
     })
     .catch(err => {
         console.log('error: ', err);
@@ -51,22 +45,10 @@ new Promise((resolve, reject) => {
 ```
 
 
-### Expected success ouput
+### Expected ouput
 
 ```
-{ 
-    type: 'success',
-    code: '200',
-    responce: 'json response from true african end' 
-}
-```
-
-### Expected error ouput
-
-```
-{ 
-    type: 'error',
-    code: '209',
-    responce: 'json response from true african end' 
+{
+    response: 'json response from true african end' 
 }
 ```
