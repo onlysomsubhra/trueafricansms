@@ -11,8 +11,7 @@ const config = {
 }
 
 function create(obj) {
-
-    const url = 'http://mysms.trueafrican.com/v1/api/esme/send';
+    const url = 'https://mysms.trueafrican.com/v1/api/esme/send';
 
     const headers = {
         'Content-Type': 'application/json'
@@ -52,8 +51,7 @@ function create(obj) {
             })
             .set(headers)
             .then((res) => {
-                // Do something
-                //console.log(res);                
+                // Get Success
                 resolve({'response': res});
             })
             .catch(err => reject(err));
