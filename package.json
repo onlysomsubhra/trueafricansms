@@ -1,7 +1,7 @@
 {
   "name": "trueafricansms",
-  "version": "1.0.3",
-  "description": "trueafrican sms",
+  "version": "1.0.4",
+  "description": "trueafrican sms, for Uganda, portal URL - https://mysms.trueafrican.com/",
   "main": "index.js",
   "scripts": {
     "test": "node --trace-warnings  ./test/index.js"
